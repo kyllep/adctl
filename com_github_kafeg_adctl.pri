@@ -115,11 +115,11 @@ android {
     # from my own class this is a workaround for compiling java sources from different paths.
     # consider putting the
     #http://imaginativethinking.ca/what-the-heck-how-do-i-share-java-code-between-qt-android-projects/
-    adctlJavaFilesPath = $$system_path($$ANDROID_SOURCES/src/)
+    adctlJavaFilesPath = $$system_path($$ANDROID_SOURCES/src)
     androidBuildOutputDir = $$system_path( $$_PRO_FILE_PWD_/android/ )
     copyAdctlJavaFiles.commands = $(COPY_DIR) $${adctlJavaFilesPath} $${androidBuildOutputDir}
 
-    adMobJavaFilesPath = $$system_path($$PWD/3rd/QtAdMob/platform/android/src/)
+    adMobJavaFilesPath = $$system_path($$PWD/3rd/QtAdMob/platform/android/src)
     copyAdMobJavaFiles.commands = $(COPY_DIR) $${adMobJavaFilesPath} $${androidBuildOutputDir}
 
     first.depends = $(first) copyAdctlJavaFiles copyAdMobJavaFiles #copyAdMobResFiles
@@ -152,7 +152,7 @@ android {
     adctl2.files = $$PWD/platform/android/src/*
     adctl2.path = /src
 
-    INSTALLS += admob1 admob2 startad1 adctl1 adctl2
+    INSTALLS +=  admob2 startad1 adctl1 adctl2
 #    INSTALLS += support_lib #removed because using gradle things get autoincluded
 }
 
